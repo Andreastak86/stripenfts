@@ -12,15 +12,16 @@ export default function Home() {
         <div>
           <p>Min første NFT</p>
         <Image src="/images/nft1.png" width={200} height={200} alt='nft nummer 1' />    
-        <button onClick={() => {
-      checkout({
-        lineItems: [
-          {
-            price: "price_1NAf58CL4oebOUCjKENmp8Ll",
-          }
-        ]
-      })
-  }}>Checkout</button>
+        <button onClick={(() => {
+              checkout({
+                lineItems: [
+                  {
+                    price: "price_1NAf58CL4oebOUCjKENmp8Ll",
+                    quantity: 1
+                  }
+                ]
+              })
+            })}>BUY!</button>
         </div>
         <div>        
           <Image src="/images/2nft1.png" width={200} height={200} alt='nft nummer 2' />
