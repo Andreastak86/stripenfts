@@ -1,19 +1,29 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-
+import checkout from "../components/checkout"
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className=" text-center grid grid-flow-row gap-4 items-center justify-center"
     >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <h1>Dette er hvordan Stripe fungerer</h1>
-        <div className=' flex flex-col gap-2'>
+        <div>
+          <p>Min første NFT</p>
         <Image src="/images/nft1.png" width={200} height={200} alt='nft nummer 1' />    
-        <Image src="/images/2nft1.png" width={200} height={200} alt='nft nummer 2' />
-      </div>
+        <button onClick={() => {
+      checkout({
+        lineItems: [
+          {
+            price: "price_1NAf58CL4oebOUCjKENmp8Ll",
+          }
+        ]
+      })
+  }}>Checkout</button>
+        </div>
+        <div>        
+          <Image src="/images/2nft1.png" width={200} height={200} alt='nft nummer 2' />
       </div>
     </main>
   )
